@@ -1,0 +1,56 @@
+window.background.chromium {
+  // active tab and toolbar colors
+  background: $background-3;
+  color: $foreground-color;
+
+  // context menu colors
+  menu {
+    background: $background-3;
+    menuitem {
+      color: $foreground-color;
+      &:hover {
+        background: $highlight;
+      }
+      &:disabled label {
+        color: $highlight;
+      }
+    }
+  }
+
+  // tab bar / headerbar
+  headerbar, menubar {
+    background: $background-1;
+
+    label {
+      color: darken($foreground-color, 30%);
+    }
+
+    // this is a workaround to position titlebuttons to the very right
+    .titlebutton {
+      padding: 100px 80px;
+    }
+  }
+
+  scrollbar {
+    button {
+      background: $highlight;
+      color: $foreground-color;
+    }
+
+    trough {
+      background: transparent;
+    }
+    slider {
+      background: $highlight;
+    }
+    junction {
+      background: $highlight;
+    }
+  }
+
+  // address bar
+  textview {
+    background-color: $background-3;
+    color: $foreground-color;
+  }
+}

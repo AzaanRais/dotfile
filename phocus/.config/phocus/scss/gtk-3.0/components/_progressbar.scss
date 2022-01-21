@@ -1,0 +1,12 @@
+progressbar {
+
+  trough {
+    background: $background-3;
+    progress {
+
+    }
+  }
+
+  &.horizontal progress { background-image: linear-gradient(to right, $primary-accent, $secondary-accent); }
+  &.vertical progress { background-image: linear-gradient(to bottom, $primary-accent, $secondary-accent); }
+}
