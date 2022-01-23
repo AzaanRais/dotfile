@@ -1,6 +1,6 @@
 # [Dotfiles](https://github.com/AzaanRais/dotfile)
 
-- These are my dotfiles for alacritty, bash, bpytop, flameshot, gitconfig, gtk-2.0, gtk-3.0, gtk-4.0, htop, neofetch, nitrogen, phocus and qtile.
+- These are my dotfiles for Alacritty, Bash, Bpytop, Cava, Dunst, Flameshot, Git, GTK-2.0/3.0/4.0, Htop, Kitty, Neofetch, Nitrogen, Phocus, Qtile and Zsh.
 
 <br>
 

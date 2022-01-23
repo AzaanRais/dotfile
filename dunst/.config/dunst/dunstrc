@@ -1,0 +1,89 @@
+# ---------------------------------------------------------------------
+# Dunst Configuration for Azaan  https://github.com/AzaanRais
+# ---------------------------------------------------------------------
+
+# NOTE: See https://dunst-project.org/documentation/ for more info
+
+[global]
+	# --- DISPLAY ---
+
+	monitor = 0					# monitor where notifications should be displayed on
+	follow = none				# notifications will be placed on the monitor specified by the "monitor" setting
+
+
+	# --- GEOMETRY ---
+
+	width = 330     			# width of the notification 
+	height = 500    			# height of the notification
+	origin = top-right      	# position of the notification 
+	offset = 40x50				# offset of the notification (20px offset from the right and 20px from top)
+	scale = 1					# scaling
+	notification_limit = 5		# number of notifications which can appear at one time
+
+
+	# --- PROGRESS BAR ---
+
+	progress_bar = false				# turn on the progress bar
+
+
+	# --- NOTIFICATIONS ---
+
+	indicate_hidden = yes		# how many messages are currently hidden
+	transparency = 5			# transparency of the window
+	separator_height = 2 		# separator height
+	padding = 10 				# vertical padding between the separator and the content
+	horizontal_padding = 8		# horizontal padding between the separator and the content
+	text_icon_padding = 0		# horizontal padding between icon and text
+	frame_width = 3				# width of frame
+	frame_color = "#b294bb"		# color of frame
+	separator_color = auto 		# color of the seperator line
+	sort = yes					# sort messages by urgency
+	idle_threshold = 180		# don't timeout notifications if user is idle for more than 180 seconds
+	corner_radius = 10			# corner radius
+
+
+	# -- TEXT ---
+
+	font = JetBrains Mono 12 		# notification font
+	line_height = 0					# line height
+	markup = full 					# markup
+	format = "<b>%s</b>\n\n%b"		# format of the notification
+	alignment = left				# horizontal alignment of the notification 
+	vertical_alignment = center		# vertical alignment of the notification
+	show_age_threshold = 20			# if message is older than 60 seconds show age of the message
+	ignore_newline = no 			# ignore newline in notification
+	stack_duplicates = true			# stack duplicate notifications
+	hide_duplicate_count = false 	# hide the count of duplicate notifications
+	show_indicators = no 			# display indicators
+
+
+	# --- ICONS ---
+
+	icon_position = left			# icon position
+	min_icon_size = 0				# minimum icon size (disabled)
+	max_icon_size = 80
+	icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/ 		# path to icons
+
+
+	# --- MOUSE ---
+	mouse_left_click = context
+	mouse_middle_click = none
+	mouse_right_click = close_current
+
+
+[urgency_low]
+	background = "#1d1f21"
+	foreground = "#c5c8c6"
+	timeout = 10
+
+[urgency_normal]
+	background = "#1d1f21"
+	foreground = "#c5c8c6"
+	timeout = 10
+
+[urgency_critical]
+	background = "#cc6666"
+	foreground = "#1d1f21"
+	frame_color = "#ff0000"
+	timeout = 0
+

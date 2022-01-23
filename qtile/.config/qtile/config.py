@@ -17,7 +17,7 @@ from libqtile.command import lazy
 
 mod = 'mod4' # sets mod key to Super/Windows key
 editor = 'code' # text editor of choice
-terminal = 'alacritty' # terminal of choice
+terminal = 'kitty' # terminal of choice
 browser = 'firefox' # browser of choice
 
 
@@ -36,8 +36,9 @@ colors = [['#1d1f21', '#1d1f21'], # black
 
 @hook.subscribe.startup_once
 def start_once():
-    qtile.cmd_spawn('nitrogen --restore')
-    qtile.cmd_spawn('compton')
+	qtile.cmd_spawn('nitrogen --restore')
+	qtile.cmd_spawn('picom')
+	qtile.cmd_spawn('dunst')
 
 
 # --- KEYBINDS ---
@@ -187,14 +188,14 @@ for i in groups:
 
 '''
 groups = [Group('DEV', layout='monadtall'),
-          Group('WWW', layout='monadtall'),
-          Group('SYS', layout='monadtall'),
-          Group('DOC', layout='monadtall'),
-          Group('STD', layout='monadtall'),
-          Group('CHAT', layout='monadtall'),
-          Group('MUS', layout='monadtall'),
-          Group('VID', layout='monadtall'),
-          Group('GFX', layout='floating')]
+		  Group('WWW', layout='monadtall'),
+		  Group('SYS', layout='monadtall'),
+		  Group('DOC', layout='monadtall'),
+		  Group('STD', layout='monadtall'),
+		  Group('CHAT', layout='monadtall'),
+		  Group('MUS', layout='monadtall'),
+		  Group('VID', layout='monadtall'),
+		  Group('GFX', layout='floating')]
 
 dgroups_key_binder = simple_key_binder('mod4')
 '''
@@ -248,8 +249,8 @@ screens = [
 					padding = 20,
 				),
 				widget.Clock(
-                    format = '%a, %b %d - %H:%M',
-                ),
+					format = '%a, %b %d - %H:%M',
+				),
 				widget.Sep(
 					linewidth = 0,
 					padding = 685,
@@ -278,7 +279,7 @@ screens = [
 					format = '{MemUsed: 0.1f} GiB',
 					padding = 0,
 					mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e htop')}
-                ),
+				),
 				widget.Sep(
 					linewidth = 0,
 					padding = 20,
@@ -323,7 +324,7 @@ screens = [
 				widget.Volume(
 					padding = 7,
 					volume_app = 'pavucontrol'
-                ),
+				),
 				widget.Sep(
 					linewidth = 0,
 					padding = 50,
@@ -357,6 +358,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
+	**layout_theme,
 	float_rules=[
 		# Run the utility of `xprop` to see the wm class and name of an X client.
 		*layout.Floating.default_float_rules,
