@@ -13,10 +13,10 @@
 
 	# --- GEOMETRY ---
 
-	width = 330     			# width of the notification 
+	width = 430    				# width of the notification 
 	height = 500    			# height of the notification
 	origin = top-right      	# position of the notification 
-	offset = 40x50				# offset of the notification (20px offset from the right and 20px from top)
+	offset = 20x50				# offset of the notification (20px offset from the right and 50px from top)
 	scale = 1					# scaling
 	notification_limit = 5		# number of notifications which can appear at one time
 
@@ -29,7 +29,7 @@
 	# --- NOTIFICATIONS ---
 
 	indicate_hidden = yes		# how many messages are currently hidden
-	transparency = 5			# transparency of the window
+	transparency = 0			# transparency of the window
 	separator_height = 2 		# separator height
 	padding = 10 				# vertical padding between the separator and the content
 	horizontal_padding = 8		# horizontal padding between the separator and the content
@@ -61,7 +61,7 @@
 
 	icon_position = left			# icon position
 	min_icon_size = 0				# minimum icon size (disabled)
-	max_icon_size = 80
+	max_icon_size = 300
 	icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/ 		# path to icons
 
 

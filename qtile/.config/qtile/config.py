@@ -5,7 +5,7 @@
 
 # --- IMPORTS ---
 
-from typing import List
+import os, subprocess
 from libqtile import bar, layout, widget, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -36,9 +36,8 @@ colors = [['#1d1f21', '#1d1f21'], # black
 
 @hook.subscribe.startup_once
 def start_once():
-	qtile.cmd_spawn('nitrogen --restore')
-	qtile.cmd_spawn('picom')
-	qtile.cmd_spawn('dunst')
+	home = os.path.expanduser('~/.config/qtile/launch.sh')
+	subprocess.run([home])
 
 
 # --- KEYBINDS ---
@@ -241,100 +240,100 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
-	Screen(
-		top=bar.Bar(
-			[
-				widget.Sep(
-					linewidth = 0,
-					padding = 20,
-				),
-				widget.Clock(
-					format = '%a, %b %d - %H:%M',
-				),
-				widget.Sep(
-					linewidth = 0,
-					padding = 685,
-				),
-				widget.GroupBox(
-					active = colors[1],
-					disable_drag = True,
-					inactive = colors[1],
-					highlight_method = 'line',
-					urgent_alert_method = 'line',
-					urgent_text = colors[2],
-					urgent_border = colors[2],
-				),
-				widget.Sep(
-					linewidth = 0,
-					padding = 550,
-				),
-				widget.TextBox(
-					text = '',
-					padding = 0,
-					fontsize = 30,
-					foreground = colors[5]
-				),
-				widget.Memory(
-					measure_mem = 'G',
-					format = '{MemUsed: 0.1f} GiB',
-					padding = 0,
-					mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e htop')}
-				),
-				widget.Sep(
-					linewidth = 0,
-					padding = 20,
-				),
-				widget.TextBox(
-					text = '',
-					padding = 0,
-					fontsize = 30,
-					foreground = colors[4]
-				),
-				widget.CPU(
-					format = '{load_percent: 0.1f}%',
-					padding = 0,
-					mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e htop')}
-				),
-				widget.Sep(
-					linewidth = 0,
-					padding = 20,
-				),
-				widget.Battery(
-					charge_char = '',
-					discharge_char = '',
-					empty_char = '',
-					full_char = '', 
-					low_percentage = 15,
-					low_foreground = colors[1],
-					background = colors[0],
-					foreground = colors[1],
-					padding = 0,
-					format = '{char} {percent:2.0%}'	
-				),
-				widget.Sep(
-					linewidth = 0,
-					padding = 20,
-				),
-				widget.TextBox(
-					text = '',
-					padding = 0,
-					fontsize = 30,
-					foreground = colors[3]
-				),
-				widget.Volume(
-					padding = 7,
-					volume_app = 'pavucontrol'
-				),
-				widget.Sep(
-					linewidth = 0,
-					padding = 50,
-				),
-			],
-			24,
-			border_width=[4, 0, 4, 0],  # Draw top and bottom borders
-			border_color=['1d1f21', '000000', '1d1f21', '000000']  # Borders are magenta
-		),
-	),
+	# Screen(
+	# 	top=bar.Bar(
+	# 		[
+	# 			widget.Sep(
+	# 				linewidth = 0,
+	# 				padding = 20,
+	# 			),
+	# 			widget.Clock(
+	# 				format = '%a, %b %d - %H:%M',
+	# 			),
+	# 			widget.Sep(
+	# 				linewidth = 0,
+	# 				padding = 685,
+	# 			),
+	# 			widget.GroupBox(
+	# 				active = colors[1],
+	# 				disable_drag = True,
+	# 				inactive = colors[1],
+	# 				highlight_method = 'line',
+	# 				urgent_alert_method = 'line',
+	# 				urgent_text = colors[2],
+	# 				urgent_border = colors[2],
+	# 			),
+	# 			widget.Sep(
+	# 				linewidth = 0,
+	# 				padding = 550,
+	# 			),
+	# 			widget.TextBox(
+	# 				text = '',
+	# 				padding = 0,
+	# 				fontsize = 30,
+	# 				foreground = colors[5]
+	# 			),
+	# 			widget.Memory(
+	# 				measure_mem = 'G',
+	# 				format = '{MemUsed: 0.1f} GiB',
+	# 				padding = 0,
+	# 				mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e htop')}
+	# 			),
+	# 			widget.Sep(
+	# 				linewidth = 0,
+	# 				padding = 20,
+	# 			),
+	# 			widget.TextBox(
+	# 				text = '',
+	# 				padding = 0,
+	# 				fontsize = 30,
+	# 				foreground = colors[4]
+	# 			),
+	# 			widget.CPU(
+	# 				format = '{load_percent: 0.1f}%',
+	# 				padding = 0,
+	# 				mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e htop')}
+	# 			),
+	# 			widget.Sep(
+	# 				linewidth = 0,
+	# 				padding = 20,
+	# 			),
+	# 			widget.Battery(
+	# 				charge_char = '',
+	# 				discharge_char = '',
+	# 				empty_char = '',
+	# 				full_char = '', 
+	# 				low_percentage = 15,
+	# 				low_foreground = colors[1],
+	# 				background = colors[0],
+	# 				foreground = colors[1],
+	# 				padding = 0,
+	# 				format = '{char} {percent:2.0%}'	
+	# 			),
+	# 			widget.Sep(
+	# 				linewidth = 0,
+	# 				padding = 20,
+	# 			),
+	# 			widget.TextBox(
+	# 				text = '',
+	# 				padding = 0,
+	# 				fontsize = 30,
+	# 				foreground = colors[3]
+	# 			),
+	# 			widget.Volume(
+	# 				padding = 7,
+	# 				volume_app = 'pavucontrol'
+	# 			),
+	# 			widget.Sep(
+	# 				linewidth = 0,
+	# 				padding = 50,
+	# 			),
+	# 		],
+	# 		24,
+	# 		border_width=[4, 0, 4, 0],  # Draw top and bottom borders
+	# 		border_color=['1d1f21', '000000', '1d1f21', '000000']  # Borders are magenta
+	# 	),
+	# ),
 ]
 
 

@@ -1,0 +1,152 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+black = #1d1f21
+white = #c5c8c6
+red = #cc6666
+green = #b5bd68
+yellow = #f0c674
+blue = #81a2be
+magenta = #b294bb
+cyan = #00ad9c
+
+[bar/top]
+monitor = eDP1
+bottom = false
+width = 100%
+height = 30
+fixed-center = true
+background = ${colors.black}
+foreground = ${colors.white}
+border-top-size = 4
+border-bottom-size = 4
+border-color = ${colors.black}
+padding-left = 3
+padding-right = 3
+line-size = 0
+module-margin = 1.5
+font-0 = "JetBrainsMono Nerd Font:style=Regular:pixelsize=12"
+modules-left = date 
+modules-center = ewmh
+modules-right = memory cpu battery pulseaudio
+tray-position = none
+cursor-click = pointer
+cursor-scroll = ns-resize 
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %a - %b %d, %Y
+time = %H:%M
+format =  <label>
+
+label = %time% %date%
+
+[module/ewmh]
+type = internal/xworkspaces
+; pin-workspaces = true
+enable-click = true
+enable-scroll = true
+format-padding = 1
+
+
+format = <label-state>
+label-empty-padding = 1
+label-active-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+
+label-empty-foreground = #32353a
+label-active-foreground = #677480
+label-urgent-foreground = ${colors.red}
+label-occupied-foreground = ${colors.white}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format = %{A1:kitty -e htop:}<ramp-used> <label>%{A}
+label = %gb_used%
+ramp-used-0 = 
+ramp-used-foreground = ${colors.blue}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = %{A1:kitty -e htop:}<ramp-load> <label>%{A}
+label = %percentage%%
+ramp-load-0 = 
+ramp-load-foreground = ${colors.yellow}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+
+format-charging = <animation-charging>  <label-charging>
+format-discharging = <animation-discharging>  <label-discharging>
+
+label-charging = %percentage%%
+label-discharging =  %percentage%%
+label-full = %percentage%%
+
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 750
+
+animation-charging-foreground = ${colors.green}
+animation-discharging-foreground = ${colors.red}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = false
+interval = 2
+format-volume = <ramp-volume> <label-volume>
+label-muted = 婢 0%
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+click-right = pavucontrol
+label-muted-foreground = ${colors.red}
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
