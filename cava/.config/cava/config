@@ -121,13 +121,15 @@ foreground = default
 # Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
 # background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-gradient = 5
-gradient_count = 5
-gradient_color_1 = '#b294bb'
-gradient_color_2 = '#81a2be'
-gradient_color_3 = '#f0c674'
-gradient_color_4 = '#b5bd68'
-gradient_color_5 = '#cc6666'
+gradient = 1
+gradient_color_1 = '#B5E8E0'
+gradient_color_2 = '#89DCEB'
+gradient_color_3 = '#96CDFB'
+gradient_color_4 = '#DDB6F2'
+gradient_color_5 = '#F5C2E7'
+gradient_color_6 = '#E8A2AF'
+gradient_color_7 = '#F2CDCD'
+gradient_color_8 = '#F5E0DC'
 
 
 

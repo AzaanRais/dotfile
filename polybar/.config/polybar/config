@@ -17,14 +17,14 @@
 ;==========================================================
 
 [colors]
-black = #1d1f21
-white = #c5c8c6
-red = #cc6666
-green = #b5bd68
-yellow = #f0c674
-blue = #81a2be
-magenta = #b294bb
-cyan = #00ad9c
+black = #161320
+white = #D9E0EE
+red = #F28FAD
+green = #ABE9B3
+yellow = #FAE3B0
+blue = #96CDFB
+magenta = #DDB6F2
+cyan = #B5E8E0
 
 [bar/top]
 monitor = eDP1
@@ -53,10 +53,11 @@ cursor-scroll = ns-resize
 type = internal/date
 interval = 1.0
 date = %a - %b %d, %Y
-time = %H:%M
-format =  <label>
+time =   %H:%M
+time-alt =   %a - %b %d, %Y
+format = <label>
 
-label = %time% %date%
+label = %time%
 
 [module/ewmh]
 type = internal/xworkspaces
@@ -80,15 +81,14 @@ label-occupied-foreground = ${colors.white}
 [module/memory]
 type = internal/memory
 interval = 2
-format = %{A1:kitty -e htop:}<ramp-used> <label>%{A}
-label = %gb_used%
+format = %{A1:kitty -e bpytop:}<ramp-used> <label>%{A}
 ramp-used-0 = 
 ramp-used-foreground = ${colors.blue}
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format = %{A1:kitty -e htop:}<ramp-load> <label>%{A}
+format = %{A1:kitty -e bpytop:}<ramp-load> <label>%{A}
 label = %percentage%%
 ramp-load-0 = 
 ramp-load-foreground = ${colors.yellow}
@@ -103,7 +103,7 @@ format-discharging = <animation-discharging>  <label-discharging>
 
 label-charging = %percentage%%
 label-discharging =  %percentage%%
-label-full = %percentage%%
+label-full =   %percentage%%
 
 
 animation-charging-0 = 
@@ -120,6 +120,7 @@ animation-discharging-3 = 
 animation-discharging-4 = 
 animation-discharging-framerate = 750
 
+label-full-foreground = ${colors.green}
 animation-charging-foreground = ${colors.green}
 animation-discharging-foreground = ${colors.red}
 
@@ -136,17 +137,9 @@ ramp-volume-2 = 墳
 click-right = pavucontrol
 label-muted-foreground = ${colors.red}
 
-
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
-
-; vim:ft=dosini
+margin-top = 0
+margin-bottom = 0

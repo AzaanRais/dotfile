@@ -35,7 +35,7 @@
 	horizontal_padding = 8		# horizontal padding between the separator and the content
 	text_icon_padding = 0		# horizontal padding between icon and text
 	frame_width = 3				# width of frame
-	frame_color = "#b294bb"		# color of frame
+	frame_color = "#DDB6F2"		# color of frame
 	separator_color = auto 		# color of the seperator line
 	sort = yes					# sort messages by urgency
 	idle_threshold = 180		# don't timeout notifications if user is idle for more than 180 seconds
@@ -61,7 +61,7 @@
 
 	icon_position = left			# icon position
 	min_icon_size = 0				# minimum icon size (disabled)
-	max_icon_size = 300
+	max_icon_size = 150
 	icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/ 		# path to icons
 
 
@@ -72,18 +72,18 @@
 
 
 [urgency_low]
-	background = "#1d1f21"
-	foreground = "#c5c8c6"
+	background = "#161320"
+	foreground = "#D9E0EE"
 	timeout = 10
 
 [urgency_normal]
-	background = "#1d1f21"
-	foreground = "#c5c8c6"
+	background = "#161320"
+	foreground = "#D9E0EE"
 	timeout = 10
 
 [urgency_critical]
-	background = "#cc6666"
+	background = "#F28FAD"
 	foreground = "#1d1f21"
-	frame_color = "#ff0000"
+	frame_color = "#161320"
 	timeout = 0
 

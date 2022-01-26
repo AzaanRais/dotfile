@@ -21,15 +21,15 @@ terminal = 'kitty' # terminal of choice
 browser = 'firefox' # browser of choice
 
 
-## theme name: Tomorrow Dark (for more themes check out https://terminal.sexy)
-colors = [['#1d1f21', '#1d1f21'], # black
-		  ['#c5c8c6', '#c5c8c6'], # white
-		  ['#cc6666', '#cc6666'], # red
-		  ['#b5bd68', '#b5bd68'], # green
-		  ['#f0c674', '#f0c674'], # yellow
-		  ['#81a2be', '#81a2be'], # blue
-		  ['#b294bb', '#b294bb'], # magenta
-		  ['#00ad9c', '#00ad9c']] # cyan
+## theme name: Catppuccin
+colors = [['#161320', '#161320'], # black
+		  ['#D9E0EE', '#D9E0EE'], # white
+		  ['#F28FAD', '#F28FAD'], # red
+		  ['#ABE9B3', '#ABE9B3'], # green
+		  ['#FAE3B0', '#FAE3B0'], # yellow
+		  ['#96CDFB', '#96CDFB'], # blue
+		  ['#DDB6F2', '#DDB6F2'], # magenta
+		  ['#B5E8E0', '#B5E8E0']] # cyan
 
 
 # --- HOOKS ---
@@ -204,7 +204,7 @@ dgroups_key_binder = simple_key_binder('mod4')
 
 layout_theme = {'border_width': 2,
 				'margin': 8,
-				'border_focus': 'b294bb',
+				'border_focus': 'DDB6F2',
 				'border_normal': '1b1918'
 				}
 
