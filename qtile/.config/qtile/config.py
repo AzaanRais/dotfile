@@ -18,7 +18,7 @@ from libqtile.command import lazy
 mod = 'mod4' # sets mod key to Super/Windows key
 editor = 'code' # text editor of choice
 terminal = 'kitty' # terminal of choice
-browser = 'firefox' # browser of choice
+browser = 'librewolf' # browser of choice
 
 
 ## theme name: Catppuccin
@@ -45,8 +45,8 @@ def start_once():
 keys = [
 	# essential keybinds
 	Key([mod], 'q', 
-		lazy.spawn(f'dmenu_run -fn "JetBrains Mono:Regular:pixelsize=16" -nb "#1d1f21" -nf "#c5c8c6" -sb "#b294bb" -sf "#1d1f21"'),
-		desc = 'Run dmenu'
+		lazy.spawn(f'rofi -show drun'),
+		desc = 'Run rofi'
 	),
 	Key([mod], 'Return',
 		lazy.spawn(terminal),
@@ -79,6 +79,14 @@ keys = [
 	Key([mod, 'shift'], 'KP_Subtract',
 		lazy.spawn('xbacklight -dec 5'),
 		desc = 'Decrease brightness by 5'
+	),
+	Key([mod, 'control'], 'KP_Add',
+		lazy.spawn('amixer sset Master 2%+'),
+		desc = 'Increase volume by 2'
+	),
+	Key([mod, 'control'], 'KP_Subtract',
+		lazy.spawn('amixer sset Master 2%-'),
+		desc = 'Decrease volume by 2'
 	),
 	Key([mod, 'shift'], 'b',
 		lazy.spawn('bluetoothctl connect E8:07:BF:D8:FA:95'),
@@ -353,7 +361,7 @@ mouse = [
 ]
 
 groups_app_rules = []
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
@@ -367,16 +375,12 @@ floating_layout = layout.Floating(
 		Match(wm_class='ssh-askpass'),  # ssh-askpass
 		Match(title='branchdialog'),  # gitk
 		Match(title='pinentry'),  # GPG key password entry
+		Match(title='MEGAsync') # megasync
 	]
 )
-
 auto_fullscreen = True
 focus_on_window_activation = 'smart'
 reconfigure_screens = True
-
-
-
-
 auto_minimize = True
 
 # --- MISCELLANEOUS ---

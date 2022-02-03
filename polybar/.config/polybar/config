@@ -41,13 +41,13 @@ padding-left = 3
 padding-right = 3
 line-size = 0
 module-margin = 1.5
-font-0 = "JetBrainsMono Nerd Font:style=Regular:pixelsize=12"
-modules-left = date 
+font-0 = "JetBrainsMono Nerd Font:style=Medium:pixelsize=11"
+modules-left = date
 modules-center = ewmh
-modules-right = memory cpu battery pulseaudio
+modules-right = network memory battery pulseaudio
 tray-position = none
 cursor-click = pointer
-cursor-scroll = ns-resize 
+cursor-scroll = ns-resize
 
 [module/date]
 type = internal/date
@@ -61,7 +61,6 @@ label = %time%
 
 [module/ewmh]
 type = internal/xworkspaces
-; pin-workspaces = true
 enable-click = true
 enable-scroll = true
 format-padding = 1
@@ -78,51 +77,57 @@ label-active-foreground = #677480
 label-urgent-foreground = ${colors.red}
 label-occupied-foreground = ${colors.white}
 
+[module/network]
+type = internal/network
+interface = wlp2s0
+interval = 2.0
+format-connected = 直 <label-connected>  
+label-connected = %essid%
+label-connected-foreground = ${colors.white}
+label-disconnected = 睊
+label-disconnected-foreground = ${colors.red}
+
 [module/memory]
 type = internal/memory
 interval = 2
-format = %{A1:kitty -e bpytop:}<ramp-used> <label>%{A}
-ramp-used-0 = 
-ramp-used-foreground = ${colors.blue}
+format = %{A1:kitty -e bpytop:} <label>%{A}
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format = %{A1:kitty -e bpytop:}<ramp-load> <label>%{A}
+format = %{A1:kitty -e bpytop:} <label>%{A}
 label = %percentage%%
-ramp-load-0 = 
-ramp-load-foreground = ${colors.yellow}
 
 [module/battery]
 type = internal/battery
 battery = BAT1
 adapter = ACAD
 
-format-charging = <animation-charging>  <label-charging>
-format-discharging = <animation-discharging>  <label-discharging>
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
 
 label-charging = %percentage%%
 label-discharging =  %percentage%%
-label-full =   %percentage%%
+label-full =  %percentage%%
 
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
 animation-discharging-framerate = 750
 
 label-full-foreground = ${colors.green}
-animation-charging-foreground = ${colors.green}
-animation-discharging-foreground = ${colors.red}
+format-charging-foreground = ${colors.green}
+format-discharging-foreground = ${colors.red}
 
 [module/pulseaudio]
 type = internal/pulseaudio
